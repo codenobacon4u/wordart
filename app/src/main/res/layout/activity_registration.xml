@@ -6,12 +6,13 @@
     android:gravity="center_vertical"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".collaborativeArt.LoginActivity">
+    tools:context=".collaborativeArt.RegistrationActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/account_login_string"/>
+        android:text="@string/register_new_account_string" />
+
     <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"
@@ -29,14 +30,15 @@
         android:importantForAutofill="no" />
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/login_string" />
+        android:text="@string/register_string" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone" />
+
 </LinearLayout>

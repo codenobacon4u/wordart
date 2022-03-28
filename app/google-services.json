@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "479828806599",
+    "project_id": "wordart-8381a",
+    "storage_bucket": "wordart-8381a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:479828806599:android:fabcd2650ff958b606e7e2",
+        "android_client_info": {
+          "package_name": "com.sunriseorange.wordart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "479828806599-72lb17djinpi7oatgt13p67vnss9enu4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjH8h2UQVFwaj3dSlABi6lFmeGigr0VV4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "479828806599-72lb17djinpi7oatgt13p67vnss9enu4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

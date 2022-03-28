@@ -8,9 +8,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.WordArt">
+        android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.login.LoginActivity"
+            android:name=".collaborativeArt.MainActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
@@ -19,6 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".collaborativeArt.LoginActivity" />
+        <activity android:name=".collaborativeArt.RegistrationActivity" />
+        <activity android:name=".collaborativeArt.DashboardActivity" />
     </application>
 
 </manifest>

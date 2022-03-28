@@ -1,7 +1,8 @@
-package com.sunriseorange.wordart
+package com.sunriseorange.wordart.collaborativeArt
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.sunriseorange.wordart.R
 
 class DashboardActivity : AppCompatActivity() {
 
