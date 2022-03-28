@@ -9,4 +9,6 @@
     <string name="register_new_account_string">Register new account</string>
     <string name="register_success_string">Registration successful!</string>
     <string name="register_failed_string">Registration failed! Please try again later</string>
+    <string name="add_memoir">Add Memoir</string>
+    <string name="location_of_post">Location of Post</string>
 </resources>
