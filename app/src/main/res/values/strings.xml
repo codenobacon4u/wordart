@@ -9,6 +9,10 @@
     <string name="register_new_account_string">Register new account</string>
     <string name="register_success_string">Registration successful!</string>
     <string name="register_failed_string">Registration failed! Please try again later</string>
-    <string name="add_memoir">Add Memoir</string>
-    <string name="location_of_post">Location of Post</string>
+    <string name="add_memoir_string">Add Memoir</string>
+    <string name="location_of_post_string">Location of Post</string>
+    <string name="memoir_hint_string">Enter your 6-word memoir</string>
+    <string name="author_hint_string">Author</string>
+    <string name="map_location_picker_string">Map Location Picker</string>
+    <string name="save_string">Save</string>
 </resources>

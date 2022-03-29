@@ -1,19 +1,20 @@
 package com.sunriseorange.wordart.collaborativeArt
 
-import androidx.appcompat.app.AppCompatActivity
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import android.widget.ListView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.*
 import com.sunriseorange.wordart.R
 
-class DashboardActivity : AppCompatActivity() {
+class DashboardActivity : Activity() {
     companion object{
         const val TAG = "Collaborative-Art-Project"
     }
 
-    private lateinit var buttonAddMemoir: Button
+    private lateinit var buttonAddMemoir: FloatingActionButton
     private lateinit var listViewMemoirs: ListView
 
     private lateinit var memoirs: MutableList<Memoir>
@@ -24,8 +25,6 @@ class DashboardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
-        val intent = intent
-
         databaseMemoirs = FirebaseDatabase.getInstance().getReference("memoirs")
 
         buttonAddMemoir = findViewById(R.id.buttonAddMemoir)
@@ -34,7 +33,8 @@ class DashboardActivity : AppCompatActivity() {
         memoirs = ArrayList()
 
         buttonAddMemoir.setOnClickListener {
-//            Add intent StartActivity to Adding a memoir page
+            val intent = Intent(this@DashboardActivity, AddMemoirActivity::class.java)
+            startActivity(intent)
         }
     }
 

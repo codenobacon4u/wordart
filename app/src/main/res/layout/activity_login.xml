@@ -12,27 +12,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/account_login_string"/>
+
     <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/email_hint_string"
+        android:importantForAutofill="no"
         android:inputType="textEmailAddress"
-        android:importantForAutofill="no" />
+        android:minHeight="48dp"
+        android:textColorHint="#616161"
+        tools:ignore="TextContrastCheck" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/password_hint_string"
+        android:importantForAutofill="no"
         android:inputType="textPassword"
-        android:importantForAutofill="no" />
+        android:minHeight="48dp"
+        android:textColorHint="#616161"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/login_string" />
+        android:text="@string/login_string"
+        android:textColor="#212121" />
 
     <ProgressBar
         android:id="@+id/progressBar"
