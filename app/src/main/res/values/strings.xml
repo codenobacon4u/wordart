@@ -13,6 +13,10 @@
     <string name="location_of_post_string">Location of Post</string>
     <string name="memoir_hint_string">Enter your 6-word memoir</string>
     <string name="author_hint_string">Author</string>
-    <string name="map_location_picker_string">Map Location Picker</string>
+    <string name="map_location_string">Map Location</string>
     <string name="save_string">Save</string>
+    <string name="service_not_available">This service is not available</string>
+    <string name="invalid_location">Invalid location used</string>
+    <string name="no_address_found">No address found</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>
