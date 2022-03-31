@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.TextView
 import androidx.core.view.forEach
@@ -42,19 +43,18 @@ class DashboardActivity : Activity() {
             startActivity(intent)
         }
 
-        listViewMemoirs.forEach {
-            view : View ->
-            view.setOnClickListener{
-                val intent = Intent(
-                    this@DashboardActivity,
-                    MemoirView::class.java
-                )
+        listViewMemoirs.onItemClickListener = AdapterView.OnItemClickListener { _, _, item, _ ->
+            val memoir = memoirs[item]
 
-                intent.putExtra("user", view.findViewById<TextView>(R.id.user).toString())
-                intent.putExtra("memoir", view.findViewById<TextView>(R.id.sixWordMemoir).toString())
 
-                startActivity(intent)
-            }
+            val intent = Intent(this@DashboardActivity, MemoirView::class.java)
+
+            intent.putExtra("user", memoir.username)
+            intent.putExtra("memoir", memoir.memoir)
+            intent.putExtra("location", memoir.location)
+            intent.putExtra("id", memoir.id)
+
+            startActivity(intent)
         }
     }
 

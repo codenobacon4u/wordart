@@ -17,12 +17,14 @@ class MemoirView : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_memoir_view)
 
+        val intent = intent
+
         author = findViewById(R.id.authorText)
         memoir = findViewById(R.id.memoirText)
         location = findViewById(R.id.locationText)
 
-        val extras = intent.extras
-        author.text = extras?.getString("user")
-        memoir.text = extras?.getString("memoir")
+        author.text = intent.getStringExtra("user")
+        memoir.text = intent.getStringExtra("memoir")
+        location.text = intent.getStringExtra("location")
     }
 }
