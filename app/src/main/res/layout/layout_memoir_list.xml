@@ -10,8 +10,9 @@
         android:id="@+id/user"
         android:layout_width="316dp"
         android:layout_height="19dp"
-        app:layout_constraintEnd_toEndOf="@+id/sixWordMemoir"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.273"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sixWordMemoir" />
 
@@ -19,24 +20,11 @@
         android:id="@+id/sixWordMemoir"
         android:layout_width="316dp"
         android:layout_height="19dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.273"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="81dp"
-        android:layout_height="38dp"
-        android:layout_marginEnd="4dp"
-        android:text="@string/goes_to_location_display"
-        android:textColor="#212121"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.011"
-        tools:ignore="TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
