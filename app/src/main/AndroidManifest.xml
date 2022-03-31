@@ -33,6 +33,7 @@
         <activity android:name=".collaborativeArt.LoginActivity" />
         <activity android:name=".collaborativeArt.RegistrationActivity" />
         <activity android:name=".collaborativeArt.DashboardActivity" />
+        <activity android:name=".collaborativeArt.MemoirView" />
     </application>
 
 </manifest>

@@ -45,8 +45,7 @@ class DashboardActivity : Activity() {
 
         listViewMemoirs.onItemClickListener = AdapterView.OnItemClickListener { _, _, item, _ ->
             val memoir = memoirs[item]
-
-
+            
             val intent = Intent(this@DashboardActivity, MemoirView::class.java)
 
             intent.putExtra("user", memoir.username)
