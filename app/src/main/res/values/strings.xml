@@ -19,4 +19,5 @@
     <string name="invalid_location">Invalid location used</string>
     <string name="no_address_found">No address found</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="goes_to_location_display">Map</string>
 </resources>

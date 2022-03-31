@@ -1,5 +1,7 @@
 package com.sunriseorange.wordart.collaborativeArt
 
+// Taken from FirebaseEmailAuthExample
+
 class Validators {
     fun validEmail(email: String?) : Boolean {
         if (email.isNullOrEmpty()) {

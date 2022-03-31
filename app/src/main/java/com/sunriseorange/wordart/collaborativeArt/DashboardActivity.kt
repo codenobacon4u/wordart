@@ -16,15 +16,14 @@ class DashboardActivity : Activity() {
 
     private lateinit var buttonAddMemoir: FloatingActionButton
     private lateinit var listViewMemoirs: ListView
-
     private lateinit var memoirs: MutableList<Memoir>
-
     private lateinit var databaseMemoirs: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
+        // Setting up the Realtime Database
         databaseMemoirs = FirebaseDatabase.getInstance().getReference("memoirs")
 
         buttonAddMemoir = findViewById(R.id.buttonAddMemoir)
@@ -33,7 +32,10 @@ class DashboardActivity : Activity() {
         memoirs = ArrayList()
 
         buttonAddMemoir.setOnClickListener {
-            val intent = Intent(this@DashboardActivity, AddMemoirActivity::class.java)
+            val intent = Intent(
+                this@DashboardActivity,
+                AddMemoirActivity::class.java
+            )
             startActivity(intent)
         }
     }
@@ -41,6 +43,7 @@ class DashboardActivity : Activity() {
     override fun onStart() {
         super.onStart()
 
+        // Getting list of Memoirs to display on main page
         databaseMemoirs.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot){
                 memoirs.clear()
