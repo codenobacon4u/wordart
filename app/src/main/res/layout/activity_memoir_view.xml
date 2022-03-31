@@ -23,6 +23,7 @@
         android:hint="@string/memoir_string"
         android:importantForAutofill="no"
         android:inputType="textShortMessage"
+        android:textAlignment="center"
         android:textColorHint="#546E7A" />
 
     <TextView
@@ -34,6 +35,7 @@
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textAlignment="center"
         android:textColorHint="#616161" />
 
     <TextView
@@ -45,6 +47,7 @@
         android:hint="@string/location_of_post_string"
         android:inputType="textPostalAddress"
         android:minHeight="48dp"
+        android:textAlignment="center"
         android:textColorHint="#546E7A" />
 
     <androidx.constraintlayout.widget.ConstraintLayout

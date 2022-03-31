@@ -3,10 +3,11 @@ package com.sunriseorange.wordart.collaborativeArt
 import android.app.Activity
 import android.os.Bundle
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.MapView
 import com.sunriseorange.wordart.R
 
-class MemoirView : Activity() {
+class MemoirView : AppCompatActivity() {
 
     private lateinit var author : TextView
     private lateinit var memoir : TextView
