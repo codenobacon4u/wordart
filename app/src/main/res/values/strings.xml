@@ -12,6 +12,7 @@
     <string name="add_memoir_string">Add Memoir</string>
     <string name="location_of_post_string">Location of Post</string>
     <string name="memoir_hint_string">Enter your 6-word memoir</string>
+    <string name="memoir_string">6-word memoir</string>
     <string name="author_hint_string">Author</string>
     <string name="map_location_string">Map Location</string>
     <string name="save_string">Save</string>

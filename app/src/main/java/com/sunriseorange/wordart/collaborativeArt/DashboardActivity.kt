@@ -4,7 +4,10 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ListView
+import android.widget.TextView
+import androidx.core.view.forEach
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.*
 import com.sunriseorange.wordart.R
@@ -37,6 +40,21 @@ class DashboardActivity : Activity() {
                 AddMemoirActivity::class.java
             )
             startActivity(intent)
+        }
+
+        listViewMemoirs.forEach {
+            view : View ->
+            view.setOnClickListener{
+                val intent = Intent(
+                    this@DashboardActivity,
+                    MemoirView::class.java
+                )
+
+                intent.putExtra("user", view.findViewById<TextView>(R.id.user).toString())
+                intent.putExtra("memoir", view.findViewById<TextView>(R.id.sixWordMemoir).toString())
+
+                startActivity(intent)
+            }
         }
     }
 
