@@ -116,7 +116,7 @@ class AddMemoirActivity : FragmentActivity(), OnMapReadyCallback {
     private fun addMemoir() {
         val text = editTextMemoirs.text
         val author = editTextAuthor.text.toString().trim { it <= ' ' }
-        val location = editTextAuthor.text.toString().trim { it <= ' ' }
+        val location = editTextLocation.text.toString().trim { it <= ' ' }
 
         val id = databaseMemoirs.push().key
 
