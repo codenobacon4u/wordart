@@ -13,10 +13,10 @@ import com.sunriseorange.wordart.R
 
 class RegistrationActivity : AppCompatActivity() {
 
-    private lateinit var emailTV: EditText
-    private lateinit var passwordTV: EditText
-    private lateinit var regBtn: Button
-    private lateinit var progressBar: ProgressBar
+    private lateinit var userEmail: EditText
+    private lateinit var userPassword: EditText
+    private lateinit var registerButton: Button
+    private lateinit var loadingBar: ProgressBar
     private var validator = Validators()
 
     private var mAuth: FirebaseAuth? = null
@@ -24,45 +24,76 @@ class RegistrationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
 
+        // Initializing the Authentication Database
         mAuth = FirebaseAuth.getInstance()
 
-        initializeUI()
+        // Initialization
+        userEmail = findViewById(R.id.email)
+        userPassword = findViewById(R.id.password)
+        registerButton = findViewById(R.id.register)
+        loadingBar = findViewById(R.id.progressBar)
 
-        regBtn.setOnClickListener { registerNewUser() }
+        registerButton.setOnClickListener { registerNewUser() }
     }
 
     private fun registerNewUser() {
-        progressBar.visibility = View.VISIBLE
+        loadingBar.visibility = View.VISIBLE
 
-        val email: String = emailTV.text.toString()
-        val password: String = passwordTV.text.toString()
+        val email: String = userEmail.text.toString()
+        val password: String = userPassword.text.toString()
 
         if (!validator.validEmail(email)) {
-            Toast.makeText(applicationContext, "Please enter valid email...", Toast.LENGTH_LONG).show()
+            Toast.makeText(
+                applicationContext,
+                "Please enter valid email...",
+                Toast.LENGTH_LONG
+            ).show()
+            loadingBar.visibility = View.GONE
+            userEmail.text.clear()
             return
         }
         if (!validator.validPassword(password)) {
-            Toast.makeText(applicationContext, "Password must contain 8 characters with one letter and one number!", Toast.LENGTH_LONG).show()
+            Toast.makeText(
+                applicationContext,
+                "Password must contain 8 characters with one letter and one number!",
+                Toast.LENGTH_LONG
+            ).show()
+            loadingBar.visibility = View.GONE
+            userPassword.text.clear()
             return
         }
 
         val x = mAuth!!.createUserWithEmailAndPassword(email, password)
-
         x.addOnCompleteListener { task ->
-            progressBar.visibility = View.GONE
+            loadingBar.visibility = View.GONE
+            // If Registration is successful then go to dashboard, otherwise to back to the front page
             if (task.isSuccessful) {
-                Toast.makeText(applicationContext, getString(R.string.register_success_string), Toast.LENGTH_LONG).show()
-                startActivity(Intent(this@RegistrationActivity, LoginActivity::class.java))
-            } else {
-                Toast.makeText(applicationContext, getString(R.string.register_failed_string), Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    applicationContext,
+                    getString(R.string.register_success_string),
+                    Toast.LENGTH_LONG
+                ).show()
+                startActivity(
+                    Intent(
+                        this@RegistrationActivity,
+                        DashboardActivity::class.java
+                    )
+                )
+            }
+            else {
+                Toast.makeText(
+                    applicationContext,
+                    getString(R.string.register_failed_string),
+                    Toast.LENGTH_LONG
+                ).show()
+
+                startActivity(
+                    Intent(
+                        this@RegistrationActivity,
+                        MainActivity::class.java
+                    )
+                )
             }
         }
-    }
-
-    private fun initializeUI() {
-        emailTV = findViewById(R.id.email)
-        passwordTV = findViewById(R.id.password)
-        regBtn = findViewById(R.id.register)
-        progressBar = findViewById(R.id.progressBar)
     }
 }

@@ -3,7 +3,6 @@ package com.sunriseorange.wordart.collaborativeArt
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -17,58 +16,85 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var userEmail: EditText
     private lateinit var userPassword: EditText
-    private lateinit var loginBtn: Button
-    private lateinit var progressBar: ProgressBar
+    private lateinit var loginButton: Button
+    private lateinit var loadingBar: ProgressBar
     private var mAuth: FirebaseAuth? = null
+    private var validator = Validators()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        // Setting up the Authentication Database
         mAuth = FirebaseAuth.getInstance()
 
-        initializeUI()
+        // Initialization
+        userEmail = findViewById(R.id.email)
+        userPassword = findViewById(R.id.password)
+        loginButton = findViewById(R.id.login)
+        loadingBar = findViewById(R.id.progressBar)
 
-        loginBtn.setOnClickListener { loginUserAccount() }
+        loginButton.setOnClickListener { loginUserAccount() }
     }
 
     private fun loginUserAccount() {
-        progressBar.visibility = View.VISIBLE
+        loadingBar.visibility = View.VISIBLE
 
         val email: String = userEmail.text.toString()
         val password: String = userPassword.text.toString()
 
-        if (TextUtils.isEmpty(email)) {
-            Toast.makeText(applicationContext, "Please enter email...", Toast.LENGTH_LONG).show()
+        // Check to make sure that the email and password are filled in
+        if (!validator.validEmail(email)) {
+            Toast.makeText(
+                applicationContext,
+                "Please enter valid email...",
+                Toast.LENGTH_LONG
+            ).show()
+            loadingBar.visibility = View.GONE
             return
         }
-        if (TextUtils.isEmpty(password)) {
-            Toast.makeText(applicationContext, "Please enter password!", Toast.LENGTH_LONG).show()
+        if (!validator.validPassword(password)) {
+            Toast.makeText(
+                applicationContext,
+                "Please enter valid password!",
+                Toast.LENGTH_LONG
+            ).show()
+            loadingBar.visibility = View.GONE
             return
         }
 
-        mAuth!!.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener { task ->
-                progressBar.visibility = View.GONE
-                if (task.isSuccessful) {
-                    Toast.makeText(applicationContext, "Login successful!", Toast.LENGTH_LONG)
-                        .show()
-                    startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
-                } else {
-                    Toast.makeText(
-                        applicationContext,
-                        "Login failed! Please try again later",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
+        val x = mAuth!!.signInWithEmailAndPassword(email, password)
+        x.addOnCompleteListener { task ->
+            loadingBar.visibility = View.GONE
+            // If login/register is successful then go to dashboard screen
+            if (task.isSuccessful) {
+                Toast.makeText(
+                    applicationContext,
+                    "Login successful!",
+                    Toast.LENGTH_LONG
+                ).show()
+
+                startActivity(
+                    Intent(
+                        this@LoginActivity,
+                        DashboardActivity::class.java
+                    )
+                )
             }
-    }
+            else {
+                Toast.makeText(
+                    applicationContext,
+                    "Login failed! Please try again later",
+                    Toast.LENGTH_LONG
+                ).show()
 
-    private fun initializeUI() {
-        userEmail = findViewById(R.id.email)
-        userPassword = findViewById(R.id.password)
-
-        loginBtn = findViewById(R.id.login)
-        progressBar = findViewById(R.id.progressBar)
+                startActivity(
+                    Intent(
+                        this@LoginActivity,
+                        MainActivity::class.java
+                    )
+                )
+            }
+        }
     }
 }
