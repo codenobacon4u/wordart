@@ -14,7 +14,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.FragmentActivity
 import com.google.android.gms.maps.*
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.sunriseorange.wordart.R
@@ -32,7 +34,6 @@ class AddMemoirActivity : FragmentActivity(), OnMapReadyCallback {
     private lateinit var editTextMemoirs: EditText
     private lateinit var editTextAuthor: EditText
     private lateinit var editTextLocation: EditText
-    private lateinit var mapView: MapView
     private lateinit var saveButton: Button
 
     private lateinit var databaseMemoirs: DatabaseReference
@@ -40,7 +41,6 @@ class AddMemoirActivity : FragmentActivity(), OnMapReadyCallback {
     private var mMap: GoogleMap? = null
     private var mLatLng: LatLng? = null
     private var mMapReady = false
-    private var mDataReady = false
     private var mLocationValid = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,15 +57,10 @@ class AddMemoirActivity : FragmentActivity(), OnMapReadyCallback {
 
         databaseMemoirs = FirebaseDatabase.getInstance().getReference("memoirs")
 
-        editTextLocation.setOnFocusChangeListener { v: View, hasFocus: Boolean ->
+        editTextLocation.setOnFocusChangeListener { _: View, hasFocus: Boolean ->
             if(!hasFocus) {
                 Log.i(TAG, "doAfterTextChanged")
-                mDataReady = true
-                if (mMapReady) {
                     updateMap(editTextLocation.text.toString())
-                    mMap!!.moveCamera(CameraUpdateFactory.newLatLng(mLatLng!!))
-                    mDataReady = false
-                }
             }
         }
 
@@ -106,16 +101,22 @@ class AddMemoirActivity : FragmentActivity(), OnMapReadyCallback {
             }
             mLocationValid = false
         } else {
-            mLocationValid = true
             val address = addresses[0]
+
+            mLocationValid = true
             mLatLng = LatLng(address.latitude, address.longitude)
+
+            mMap!!.setMinZoomPreference(4.0f)
+            mMap!!.setMaxZoomPreference(14.0f)
+            mMap!!.moveCamera(CameraUpdateFactory.newLatLng(mLatLng!!))
+            mMap!!.addMarker(MarkerOptions().position(mLatLng!!))
         }
     }
 
     private fun addMemoir() {
         val text = editTextMemoirs.text
         val author = editTextAuthor.text.toString().trim { it <= ' ' }
-        val location = editTextAuthor.text.toString().trim { it <= ' ' }
+        val location = editTextLocation.text.toString().trim { it <= ' ' }
 
         val id = databaseMemoirs.push().key
 
@@ -131,10 +132,7 @@ class AddMemoirActivity : FragmentActivity(), OnMapReadyCallback {
         Log.i(TAG, "onMapReady")
         mMapReady = true
         mMap = googleMap
+        mMap!!.moveCamera(CameraUpdateFactory.zoomTo(1.0f))
         mMap!!.moveCamera(CameraUpdateFactory.newLatLng(LatLng(CAMERA_LAT, CAMERA_LNG)))
-        if (mDataReady) {
-            mMap!!.moveCamera(CameraUpdateFactory.newLatLng(mLatLng!!))
-            mMapReady = false
-        }
     }
 }
