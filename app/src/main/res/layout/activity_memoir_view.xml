@@ -21,8 +21,6 @@
         android:layout_height="48dp"
         android:ems="10"
         android:hint="@string/memoir_string"
-        android:importantForAutofill="no"
-        android:inputType="textShortMessage"
         android:textAlignment="center"
         android:textColorHint="#546E7A" />
 
@@ -32,8 +30,6 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/author_hint_string"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textAlignment="center"
         android:textColorHint="#616161" />
@@ -42,10 +38,8 @@
         android:id="@+id/locationText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:autofillHints="postalAddress"
         android:ems="10"
         android:hint="@string/location_of_post_string"
-        android:inputType="textPostalAddress"
         android:minHeight="48dp"
         android:textAlignment="center"
         android:textColorHint="#546E7A" />

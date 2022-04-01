@@ -1,27 +1,24 @@
 package com.sunriseorange.wordart.collaborativeArt
 
-import android.app.Activity
 import android.location.Address
 import android.location.Geocoder
 import android.os.Bundle
-import android.text.Editable
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.FragmentActivity
-import com.google.android.gms.maps.*
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.sunriseorange.wordart.R
 import java.io.IOException
-import java.lang.IllegalArgumentException
 import java.util.*
 
 class AddMemoirActivity : FragmentActivity(), OnMapReadyCallback {
@@ -82,10 +79,10 @@ class AddMemoirActivity : FragmentActivity(), OnMapReadyCallback {
         Log.i(TAG, "updateMap")
         var errorMessage = ""
         val geocoder = Geocoder(this, Locale.getDefault())
-        var addresses: List<Address> = emptyList();
+        var addresses: List<Address> = emptyList()
 
         try {
-            addresses = geocoder.getFromLocationName(location, 1);
+            addresses = geocoder.getFromLocationName(location, 1)
         } catch (ioException: IOException) {
             errorMessage = getString(R.string.service_not_available)
             Log.e(TAG, errorMessage, ioException)
