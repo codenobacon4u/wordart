@@ -24,9 +24,11 @@ class MemoirList (private val context: Activity, private var memoirs: List<Memoi
         )
         val textViewMemoir = listViewItem.findViewById<TextView>(R.id.sixWordMemoir)
         val textViewName = listViewItem.findViewById<TextView>(R.id.user)
+        val textViewLocation = listViewItem.findViewById<TextView>(R.id.location)
         val memoir = memoirs[position]
         textViewMemoir.text = memoir.memoir
         textViewName.text = "By: " + memoir.username
+        textViewLocation.text = "From: " + memoir.location
         return listViewItem
     }
 }

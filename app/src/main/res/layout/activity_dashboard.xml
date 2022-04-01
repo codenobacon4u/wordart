@@ -23,8 +23,19 @@
     <ListView
         android:id="@+id/listMemoirs"
         android:layout_width="409dp"
-        android:layout_height="657dp"
+        android:layout_height="600dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonAddMemoir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <SearchView
+        android:id="@+id/searchMemoirs"
+        android:layout_width="409dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/listMemoirs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
