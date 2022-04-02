@@ -87,7 +87,7 @@ class DashboardActivity : Activity() {
                 searchBar.clearFocus()
                 if (query == "text") {
                     val adapter = listViewMemoirs.adapter as ArrayAdapter<*>
-                    adapter.filter.filter(query.lowercase())
+                    adapter.filter.filter(query)
                 } else {
                     Toast.makeText(applicationContext, "Not Found", Toast.LENGTH_LONG).show()
                 }
@@ -97,7 +97,7 @@ class DashboardActivity : Activity() {
             override fun onQueryTextChange(newText: String?): Boolean {
                 val adapter = listViewMemoirs.adapter as ArrayAdapter<*>
                 if (newText != null) {
-                    adapter.filter.filter(newText.lowercase())
+                    adapter.filter.filter(newText)
                 }
                 return false
             }
@@ -106,12 +106,5 @@ class DashboardActivity : Activity() {
             setSearchableInfo(searchManager.getSearchableInfo(componentName))
             isIconifiedByDefault = false
         }
-    }
-
-    override fun onStart() {
-        super.onStart()
-
-        // Getting list of Memoirs to display on main page
-
     }
 }
