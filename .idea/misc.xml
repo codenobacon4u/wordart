@@ -8,13 +8,14 @@
         <entry key="..\:/Users/Tim/Desktop/cmsc436-tsclark/WordArt/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.166796875" />
         <entry key="..\:/Users/Tim/Desktop/cmsc436-tsclark/WordArt/app/src/main/res/layout-w936dp/activity_login.xml" value="0.2021805661820964" />
         <entry key="..\:/Users/Tim/Desktop/cmsc436-tsclark/WordArt/app/src/main/res/layout/activity_add_memoir.xml" value="0.31302083333333336" />
-        <entry key="..\:/Users/Tim/Desktop/cmsc436-tsclark/WordArt/app/src/main/res/layout/activity_dashboard.xml" value="0.5505208333333333" />
+        <entry key="..\:/Users/Tim/Desktop/cmsc436-tsclark/WordArt/app/src/main/res/layout/activity_dashboard.xml" value="0.34462151394422313" />
         <entry key="..\:/Users/Tim/Desktop/cmsc436-tsclark/WordArt/app/src/main/res/layout/activity_edit_memoir.xml" value="0.5505208333333333" />
         <entry key="..\:/Users/Tim/Desktop/cmsc436-tsclark/WordArt/app/src/main/res/layout/activity_login.xml" value="0.26773049645390073" />
         <entry key="..\:/Users/Tim/Desktop/cmsc436-tsclark/WordArt/app/src/main/res/layout/activity_main.xml" value="0.5505208333333333" />
         <entry key="..\:/Users/Tim/Desktop/cmsc436-tsclark/WordArt/app/src/main/res/layout/activity_memoir_view.xml" value="0.4960159362549801" />
         <entry key="..\:/Users/Tim/Desktop/cmsc436-tsclark/WordArt/app/src/main/res/layout/activity_plus.xml" value="0.5505208333333333" />
         <entry key="..\:/Users/Tim/Desktop/cmsc436-tsclark/WordArt/app/src/main/res/layout/activity_registration.xml" value="0.31302083333333336" />
+        <entry key="..\:/Users/Tim/Desktop/cmsc436-tsclark/WordArt/app/src/main/res/layout/activity_search.xml" value="0.25555555555555554" />
         <entry key="..\:/Users/Tim/Desktop/cmsc436-tsclark/WordArt/app/src/main/res/layout/fragment_item.xml" value="0.2672239108409321" />
         <entry key="..\:/Users/Tim/Desktop/cmsc436-tsclark/WordArt/app/src/main/res/layout/fragment_item_list.xml" value="0.2608915906788247" />
         <entry key="..\:/Users/Tim/Desktop/cmsc436-tsclark/WordArt/app/src/main/res/layout/layout_memoir_list.xml" value="0.31302083333333336" />
@@ -26,7 +27,7 @@
         <entry key="..\:/Users/ejbar/OneDrive/Desktop/CMSC436 FINAL PROJECT/wordart/app/src/main/res/layout/activity_main.xml" value="0.30416666666666664" />
         <entry key="..\:/Users/ejbar/OneDrive/Desktop/CMSC436 FINAL PROJECT/wordart/app/src/main/res/layout/activity_memoir_view.xml" value="0.264" />
         <entry key="..\:/Users/ejbar/OneDrive/Desktop/CMSC436 FINAL PROJECT/wordart/app/src/main/res/layout/activity_registration.xml" value="0.30416666666666664" />
-        <entry key="..\:/Users/ejbar/OneDrive/Desktop/CMSC436 FINAL PROJECT/wordart/app/src/main/res/layout/layout_memoir_list.xml" value="0.536144578313253" />
+        <entry key="..\:/Users/ejbar/OneDrive/Desktop/CMSC436 FINAL PROJECT/wordart/app/src/main/res/layout/layout_memoir_list.xml" value="0.6" />
       </map>
     </option>
   </component>

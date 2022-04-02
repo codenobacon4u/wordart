@@ -31,4 +31,6 @@ class MemoirList (private val context: Activity, private var memoirs: List<Memoi
         textViewLocation.text = "From: " + memoir.location
         return listViewItem
     }
+
+    o
 }
