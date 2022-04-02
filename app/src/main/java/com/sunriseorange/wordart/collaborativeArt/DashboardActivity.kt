@@ -44,19 +44,6 @@ class DashboardActivity : Activity() {
             startActivity(intent)
         }
 
-        listViewMemoirs.onItemClickListener = AdapterView.OnItemClickListener { _, _, item, _ ->
-            val memoir = memoirs[item]
-
-            val intent = Intent(this@DashboardActivity, MemoirView::class.java)
-
-            intent.putExtra("user", memoir.username)
-            intent.putExtra("memoir", memoir.memoir)
-            intent.putExtra("location", memoir.location)
-            intent.putExtra("id", memoir.id)
-
-            startActivity(intent)
-        }
-
         databaseMemoirs.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 memoirs.clear()
@@ -71,7 +58,7 @@ class DashboardActivity : Activity() {
                         memoirs.add(memoir!!)
                     }
                 }
-
+                memoirs.sortBy { it.location }
                 memoirAdapter = MemoirList(this@DashboardActivity, memoirs)
                 listViewMemoirs.adapter = memoirAdapter
             }
@@ -102,6 +89,7 @@ class DashboardActivity : Activity() {
                 return false
             }
         })
+
         searchBar.apply {
             setSearchableInfo(searchManager.getSearchableInfo(componentName))
             isIconifiedByDefault = false

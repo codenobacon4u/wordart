@@ -26,7 +26,14 @@ class LoginActivity : AppCompatActivity() {
 
         // Setting up the Authentication Database
         mAuth = FirebaseAuth.getInstance()
-
+        if (mAuth!!.currentUser != null) {
+            startActivity(
+                Intent(
+                    this@LoginActivity,
+                    DashboardActivity::class.java
+                )
+            )
+        }
         // Initialization
         userEmail = findViewById(R.id.email)
         userPassword = findViewById(R.id.password)
