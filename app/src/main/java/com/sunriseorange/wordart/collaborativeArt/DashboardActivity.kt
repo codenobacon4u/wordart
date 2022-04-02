@@ -72,6 +72,7 @@ class DashboardActivity : Activity() {
                     }
                 }
 
+                memoirs.sortBy { it.location }
                 memoirAdapter = MemoirList(this@DashboardActivity, memoirs)
                 listViewMemoirs.adapter = memoirAdapter
             }
