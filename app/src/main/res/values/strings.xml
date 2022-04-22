@@ -22,4 +22,5 @@
     <string name="title_activity_maps">MapsActivity</string>
     <string name="goes_to_location_display">Map</string>
     <string name="search_hint">Search Locations</string>
+    <string name="search_description">Search by Location</string>
 </resources>

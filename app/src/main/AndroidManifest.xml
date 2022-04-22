@@ -13,9 +13,10 @@
         <meta-data
             android:name="come.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="${MAPS_API_KEY}" />
+            android:value="AIzaSyCISa4bKoSZumZcnqxx_LiOwlR9F7VI4zA" />
 
         <activity
             android:name=".collaborativeArt.AddMemoirActivity"
