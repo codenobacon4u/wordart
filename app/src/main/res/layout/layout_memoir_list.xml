@@ -8,31 +8,32 @@
 
     <TextView
         android:id="@+id/user"
-        android:layout_width="316dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="410dp"
+        android:layout_height="18dp"
+        android:background="@color/browser_actions_divider_color"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.273"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sixWordMemoir" />
 
     <TextView
         android:id="@+id/location"
-        android:layout_width="316dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="410dp"
+        android:layout_height="18dp"
+        android:background="@color/design_default_color_secondary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.273"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user" />
 
     <TextView
         android:id="@+id/sixWordMemoir"
-        android:layout_width="316dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="410dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/browser_actions_divider_color"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.273"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
