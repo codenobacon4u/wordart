@@ -13,6 +13,9 @@ import android.widget.TextView
 import com.sunriseorange.wordart.R
 import com.sunriseorange.wordart.collaborativeArt.DashboardActivity.Companion.TAG
 
+
+// Memoir list is the actual memoirs stored within a list and is later
+// displayed by dashboard activity
 class MemoirList (private val context: Activity, private val memoirs: List<Memoir>):
     ArrayAdapter<Memoir>(context, R.layout.layout_memoir_list, memoirs),
     Filterable {

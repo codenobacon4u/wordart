@@ -15,6 +15,9 @@ import java.io.IOException
 import java.lang.IllegalArgumentException
 import java.util.*
 
+// Memoirview is the view displayed when you click on the
+// memoirs displaying the memoir as well as the user and location
+// with a map view
 class MemoirView : AppCompatActivity(), OnMapReadyCallback {
     companion object {
         private const val TAG = "Collaborative-Art-Project"

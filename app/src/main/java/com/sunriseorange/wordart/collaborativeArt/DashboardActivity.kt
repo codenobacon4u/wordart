@@ -23,6 +23,7 @@ class DashboardActivity : Activity() {
     private lateinit var searchBar: SearchView
     private lateinit var memoirAdapter: ListAdapter
 
+    // Creates where all the memoirs are listed (feed)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)

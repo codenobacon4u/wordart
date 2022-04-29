@@ -1,7 +1,8 @@
 package com.sunriseorange.wordart.collaborativeArt
 
 // Taken from FirebaseEmailAuthExample
-
+// Makes sure that the email and password format are both correct given
+// our standards (Ex: 8 characters and 1 number)
 class Validators {
     fun validEmail(email: String?) : Boolean {
         if (email.isNullOrEmpty()) {

@@ -11,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.sunriseorange.wordart.R
 
+// Registers A NEW user if they do not exhists
+// and makes sure that the pasword fits the
+// requirements and then stores it all in firebase
 class RegistrationActivity : AppCompatActivity() {
 
     private lateinit var userEmail: EditText
