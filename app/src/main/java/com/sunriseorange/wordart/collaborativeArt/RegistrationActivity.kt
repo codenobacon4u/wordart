@@ -11,9 +11,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.sunriseorange.wordart.R
 
-// Registers A NEW user if they do not exhists
-// and makes sure that the pasword fits the
-// requirements and then stores it all in firebase
+// Registers A NEW user if they do not exist
+// and makes sure that the password fits the
+// requirements (using validators class) and
+// then stores it all in firebase so that they
+// can log into the app later with the email
+// and pssword that they have registered with
 class RegistrationActivity : AppCompatActivity() {
 
     private lateinit var userEmail: EditText
@@ -36,6 +39,7 @@ class RegistrationActivity : AppCompatActivity() {
         registerButton = findViewById(R.id.register)
         loadingBar = findViewById(R.id.progressBar)
 
+        // Once everthing is entered go into the registerNewUser function
         registerButton.setOnClickListener { registerNewUser() }
     }
 
@@ -45,16 +49,21 @@ class RegistrationActivity : AppCompatActivity() {
         val email: String = userEmail.text.toString()
         val password: String = userPassword.text.toString()
 
+        // Using validator, if the email is not valid, give
+        // error message saying "Please enter valid email"
         if (!validator.validEmail(email)) {
             Toast.makeText(
                 applicationContext,
-                "Please enter valid email...",
+                "Please enter valid email",
                 Toast.LENGTH_LONG
             ).show()
             loadingBar.visibility = View.GONE
             userEmail.text.clear()
             return
         }
+
+        // Using validator, if the password is not valid, give
+        // error message listing requirements for a valid password
         if (!validator.validPassword(password)) {
             Toast.makeText(
                 applicationContext,
@@ -66,6 +75,7 @@ class RegistrationActivity : AppCompatActivity() {
             return
         }
 
+        // register the user as email and password are valid
         val x = mAuth!!.createUserWithEmailAndPassword(email, password)
         x.addOnCompleteListener { task ->
             loadingBar.visibility = View.GONE
@@ -76,6 +86,7 @@ class RegistrationActivity : AppCompatActivity() {
                     getString(R.string.register_success_string),
                     Toast.LENGTH_LONG
                 ).show()
+                // go to the dashboard as it was successful
                 startActivity(
                     Intent(
                         this@RegistrationActivity,
@@ -83,6 +94,7 @@ class RegistrationActivity : AppCompatActivity() {
                     )
                 )
             }
+            // If registration not successful give error registration failed
             else {
                 Toast.makeText(
                     applicationContext,
@@ -90,6 +102,7 @@ class RegistrationActivity : AppCompatActivity() {
                     Toast.LENGTH_LONG
                 ).show()
 
+                // return to front page
                 startActivity(
                     Intent(
                         this@RegistrationActivity,

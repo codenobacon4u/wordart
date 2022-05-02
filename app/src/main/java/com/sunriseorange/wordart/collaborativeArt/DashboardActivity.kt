@@ -11,6 +11,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.*
 import com.sunriseorange.wordart.R
 
+// The dashboard activity is the feed that contains all the posts
+// and memoirs from users. It displays the memoir, user, and the
+// location with a button at the bottom allowing you to add your
+// own memoir to the dashboard.
 class DashboardActivity : Activity() {
     companion object {
         const val TAG = "Collaborative-Art-Project"
@@ -37,6 +41,8 @@ class DashboardActivity : Activity() {
 
         memoirs = ArrayList()
 
+        // if the add memoir button is clicked then redirect to
+        // the addMemoirActivity class
         buttonAddMemoir.setOnClickListener {
             val intent = Intent(
                 this@DashboardActivity,
