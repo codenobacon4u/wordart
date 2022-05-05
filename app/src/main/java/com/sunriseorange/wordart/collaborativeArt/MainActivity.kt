@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(
                 Intent(
                     this@MainActivity,
-                    LoginActivity::class.java
+                    RegistrationActivity::class.java
                 )
             )
         }
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(
                 Intent(
                     this@MainActivity,
-                    RegistrationActivity::class.java
+                    LoginActivity::class.java
                 )
             )
         }
