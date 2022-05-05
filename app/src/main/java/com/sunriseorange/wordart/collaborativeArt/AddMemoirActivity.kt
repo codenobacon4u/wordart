@@ -40,6 +40,7 @@ class AddMemoirActivity : FragmentActivity(), OnMapReadyCallback {
     private var mMapReady = false
     private var mLocationValid = false
 
+    // Super class for a memoir post
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_memoir)
@@ -75,6 +76,7 @@ class AddMemoirActivity : FragmentActivity(), OnMapReadyCallback {
         }
     }
 
+    // Saves map location that user decided
     private fun updateMap(location : String) {
         Log.i(TAG, "updateMap")
         var errorMessage = ""
@@ -110,6 +112,7 @@ class AddMemoirActivity : FragmentActivity(), OnMapReadyCallback {
         }
     }
 
+    // Save the memoir that user choose (6 words)
     private fun addMemoir() {
         val text = editTextMemoirs.text
         val author = editTextAuthor.text.toString().trim { it <= ' ' }
@@ -125,6 +128,7 @@ class AddMemoirActivity : FragmentActivity(), OnMapReadyCallback {
         finish()
     }
 
+    // Puts map back to the original pane
     override fun onMapReady(googleMap: GoogleMap) {
         Log.i(TAG, "onMapReady")
         mMapReady = true
