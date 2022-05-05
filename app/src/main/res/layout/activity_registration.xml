@@ -40,7 +40,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/register_string"
-        android:textColor="#212121" />
+        android:textColor="#FFFFFF"
+        android:background="@color/cardview_dark_background"/>
 
     <ProgressBar
         android:id="@+id/progressBar"

@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.sunriseorange.wordart.R
-
+// login class
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var userEmail: EditText

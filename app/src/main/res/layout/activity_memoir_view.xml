@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:layout_marginStart="32dp"
     android:layout_marginEnd="32dp"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="1.0"
@@ -15,11 +15,17 @@
     app:layout_constraintTop_toTopOf="parent"
     tools:context=".collaborativeArt.AddMemoirActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="181dp"
+        android:src="@drawable/logolong" />
+
     <TextView
         android:id="@+id/memoirText"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:background="@color/browser_actions_divider_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/material_dynamic_neutral90"
         android:hint="@string/memoir_string"
         android:minHeight="48dp"
         android:textAlignment="center"
@@ -28,10 +34,10 @@
 
     <TextView
         android:id="@+id/authorText"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_width="420dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:background="@color/browser_actions_divider_color"
+        android:background="@color/material_dynamic_neutral80"
         android:hint="@string/author_hint_string"
         android:minHeight="48dp"
         android:textAlignment="center"
@@ -40,14 +46,15 @@
 
     <TextView
         android:id="@+id/locationText"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_width="422dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:background="@color/design_default_color_secondary"
+        android:background="@color/cardview_dark_background"
         android:hint="@string/location_of_post_string"
         android:minHeight="48dp"
         android:textAlignment="center"
-        android:textColorHint="#546E7A"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
         android:textSize="20dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout

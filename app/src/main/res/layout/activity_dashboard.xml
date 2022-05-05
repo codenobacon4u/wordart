@@ -11,22 +11,24 @@
         android:id="@+id/searchMemoirs"
         android:layout_width="409dp"
         android:layout_height="57dp"
-        android:queryHint="@string/search_hint"
-        android:layout_marginBottom="1dp">
+        android:layout_marginBottom="1dp"
+        android:queryHint="@string/search_hint">
 
     </SearchView>
 
     <ListView
         android:id="@+id/listMemoirs"
         android:layout_width="409dp"
-        android:layout_height="600dp"/>
+        android:layout_height="600dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/buttonAddMemoir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:clickable="true"
         android:contentDescription="@string/add_memoir_string"
+        app:layout_anchorGravity="bottom|center"
         app:srcCompat="@android:drawable/ic_input_add" />
 
 </LinearLayout>
