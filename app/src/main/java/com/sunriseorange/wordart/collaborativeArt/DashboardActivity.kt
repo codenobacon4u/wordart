@@ -28,6 +28,7 @@ class DashboardActivity : Activity() {
     private lateinit var memoirAdapter: ListAdapter
 
     // Creates where all the memoirs are listed (feed)
+    // the feed uses memoir list for memoirs
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
@@ -51,6 +52,8 @@ class DashboardActivity : Activity() {
             startActivity(intent)
         }
 
+        // Display memoir previews in the dashboard using the memoir list
+        // these contain the memoir, author, and location without the map
         databaseMemoirs.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 memoirs.clear()
@@ -75,6 +78,10 @@ class DashboardActivity : Activity() {
             }
         })
 
+        // The search manager can search any of the locations in the memoirList and will
+        // narrow down the results to only those that match the location. Ex: if you search
+        // up new, posts from both new york and new hampshire will come up and any others
+        // that have a new in their location
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         searchBar.setOnQueryTextListener(object :SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -87,7 +94,8 @@ class DashboardActivity : Activity() {
                 }
                 return false
             }
-
+            // The on query exchange is the method that actually filters
+            // the locations based on the inputted text
             override fun onQueryTextChange(newText: String?): Boolean {
                 val adapter = listViewMemoirs.adapter as ArrayAdapter<*>
                 if (newText != null) {
