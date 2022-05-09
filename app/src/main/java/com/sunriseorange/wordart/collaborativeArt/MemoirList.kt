@@ -14,8 +14,8 @@ import com.sunriseorange.wordart.R
 import com.sunriseorange.wordart.collaborativeArt.DashboardActivity.Companion.TAG
 
 
-// Memoir list is the actual memoirs stored within a list and is later
-// used by dashboard activity to display the memoir previews
+// Memoir list is how the actual memoirs are displayed and to be viewed by the
+// dashboard activity. Basically a memoir preview for the dashboard.
 class MemoirList (private val context: Activity, private val memoirs: List<Memoir>):
     ArrayAdapter<Memoir>(context, R.layout.layout_memoir_list, memoirs),
     Filterable {
@@ -40,13 +40,13 @@ class MemoirList (private val context: Activity, private val memoirs: List<Memoi
             parent,
             false
         )
-        // pulling user information
+        // pulling all necessary user information
         val textViewMemoir = listViewItem.findViewById<TextView>(R.id.sixWordMemoir)
         val textViewName = listViewItem.findViewById<TextView>(R.id.user)
         val textViewLocation = listViewItem.findViewById<TextView>(R.id.location)
         val memoir = mFilterList[position]
         textViewMemoir.text = memoir.memoir
-        // adding onto it
+        // adding details onto it such as from and by
         "By: ${memoir.username}".also { textViewName.text = it }
         "From: ${memoir.location}".also { textViewLocation.text = it }
         listViewItem.setOnClickListener {

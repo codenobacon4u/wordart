@@ -21,6 +21,8 @@ import com.sunriseorange.wordart.R
 import java.io.IOException
 import java.util.*
 
+// Helps you design your memoir allowing you to choose a place, author
+// and memoir and saves them for you.
 class AddMemoirActivity : FragmentActivity(), OnMapReadyCallback {
     companion object {
         private const val TAG = "Collaborative-Art-Project"
@@ -53,6 +55,7 @@ class AddMemoirActivity : FragmentActivity(), OnMapReadyCallback {
         val map = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         map?.getMapAsync(this)
 
+        // access firebase to save
         databaseMemoirs = FirebaseDatabase.getInstance().getReference("memoirs")
 
         editTextLocation.setOnFocusChangeListener { _: View, hasFocus: Boolean ->
@@ -66,10 +69,12 @@ class AddMemoirActivity : FragmentActivity(), OnMapReadyCallback {
             val text = editTextMemoirs.text
             val author = editTextAuthor.text
             val location = editTextLocation.text
+            // errors for corresponding mistakes
             when {
                 text.isBlank() -> Toast.makeText(this, "Please enter a memoir", Toast.LENGTH_SHORT).show()
                 author.isBlank() -> Toast.makeText(this, "Please enter an author name", Toast.LENGTH_SHORT).show()
                 location.isBlank() || !mLocationValid -> Toast.makeText(this, "Please enter a location", Toast.LENGTH_SHORT).show()
+                // makes sure there is exactly 6 words or else do not accept it
                 text.split(" ").size != 6 -> Toast.makeText(this, "Each memoir must be six words, no more, no less!", Toast.LENGTH_LONG).show()
                 else -> addMemoir()
             }
@@ -83,6 +88,7 @@ class AddMemoirActivity : FragmentActivity(), OnMapReadyCallback {
         val geocoder = Geocoder(this, Locale.getDefault())
         var addresses: List<Address> = emptyList()
 
+        // Makes sure it is a valid location else give error
         try {
             addresses = geocoder.getFromLocationName(location, 1)
         } catch (ioException: IOException) {

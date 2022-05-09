@@ -36,6 +36,7 @@ class MemoirView : AppCompatActivity(), OnMapReadyCallback {
 
         val intent = intent
 
+        // pull user info
         author = findViewById(R.id.authorText)
         memoir = findViewById(R.id.memoirText)
         location = findViewById(R.id.locationText)
@@ -50,6 +51,7 @@ class MemoirView : AppCompatActivity(), OnMapReadyCallback {
 
     // on map ready uses the map to
     override fun onMapReady(googleMap: GoogleMap) {
+        // Basically to display the map
         Log.i(TAG, "onMapReady")
 
         var errorMessage = ""
