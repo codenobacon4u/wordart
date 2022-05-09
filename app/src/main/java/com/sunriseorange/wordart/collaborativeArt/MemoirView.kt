@@ -80,9 +80,15 @@ class MemoirView : AppCompatActivity(), OnMapReadyCallback {
         }
 
         mMap = googleMap
-        mMap!!.setMinZoomPreference(4.0f)
-        mMap!!.setMaxZoomPreference(14.0f)
-        mMap!!.moveCamera(CameraUpdateFactory.newLatLng(mLatLng!!))
-        mMap!!.addMarker(MarkerOptions().position(mLatLng!!))
+        if(mMap != null) {
+            mMap!!.setMinZoomPreference(4.0f)
+            mMap!!.setMaxZoomPreference(14.0f)
+            mMap!!.moveCamera(CameraUpdateFactory.newLatLng(mLatLng!!))
+            mMap!!.addMarker(MarkerOptions().position(mLatLng!!))
+        }
+        else {
+            Log.e(TAG, getString(R.string.service_not_available))
+            Toast.makeText(this, "Map Service is not available", Toast.LENGTH_LONG).show()
+        }
     }
 }
